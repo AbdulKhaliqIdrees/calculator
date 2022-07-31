@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ResultScreen extends StatelessWidget {
-  final buttoncontroller = Get.put(ButtonController());
+  final buttoncontroller = Get.find<ButtonController>();
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +11,12 @@ class ResultScreen extends StatelessWidget {
       alignment: Alignment.centerRight,
       height: 100,
       width: double.infinity,
-      child: Text(
-        buttoncontroller.result,
-        style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40),
+      child: Obx(
+        () => Text(
+          buttoncontroller.result.value,
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40),
+        ),
       ),
     );
   }

@@ -2,32 +2,32 @@ import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 class ButtonController extends GetxController {
-  String equation = "0";
-  String result = "0";
-  String expression = "";
+  var equation = "0".obs;
+  var result = "0".obs;
+  var expression = "".obs;
   void buttonpressed(String buttontext) {
     if (buttontext == "AC") {
-      equation = "0";
-      result = "0";
+      equation.value = "0";
+      result.value = "0";
     } else if (buttontext == "⊠") {
-      equation = equation.substring(0, equation.length - 1);
-      if (equation == "") {
-        equation = "0";
+      equation.value = equation.value.substring(0, equation.value.length - 1);
+      if (equation.value == "") {
+        equation.value = "";
       }
     } else if (buttontext == "=") {
-      expression = equation;
-      expression = expression.replaceAll('x', '*');
-      expression = expression.replaceAll('÷', '/');
+      expression.value = equation.value;
+      expression.value = expression.value.replaceAll('x', '*');
+      expression.value = expression.value.replaceAll('÷', '/');
       try {
         Parser p = Parser();
-        Expression exp = p.parse(expression);
+        Expression exp = p.parse(expression.value);
         ContextModel cm = ContextModel();
-        result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+        result.value = '${exp.evaluate(EvaluationType.REAL, cm)}';
       } catch (e) {
-        result = "Error";
+        result.value = "Error";
       }
     } else {
-      equation = equation + buttontext;
+      equation.value = equation.value + buttontext;
     }
   }
 }

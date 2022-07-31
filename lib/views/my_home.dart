@@ -1,11 +1,12 @@
+import 'package:calculator/controllers/button_controller.dart';
 import 'package:calculator/views/buttons_screen.dart';
 import 'package:calculator/views/equation_screen.dart';
 import 'package:calculator/views/result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MyHome extends StatelessWidget {
-  const MyHome({Key? key}) : super(key: key);
-
+  final buttoncontroller = Get.put(ButtonController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
