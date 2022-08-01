@@ -8,6 +8,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(13),
       alignment: Alignment.centerRight,
       height: 100,
       width: double.infinity,

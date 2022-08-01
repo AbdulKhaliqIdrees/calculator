@@ -8,6 +8,7 @@ class EquationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(15),
       alignment: Alignment.bottomRight,
       height: 250,
       width: double.infinity,
