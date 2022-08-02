@@ -2,12 +2,12 @@ import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 class ButtonController extends GetxController {
-  var equation = "0".obs;
+  var equation = "".obs;
   var result = "0".obs;
   var expression = "".obs;
   void buttonpressed(String buttontext) {
     if (buttontext == "AC") {
-      equation.value = "0";
+      equation.value = "";
       result.value = "0";
     } else if (buttontext == "⊠") {
       equation.value = equation.value.substring(0, equation.value.length - 1);
@@ -23,6 +23,9 @@ class ButtonController extends GetxController {
         Expression exp = p.parse(expression.value);
         ContextModel cm = ContextModel();
         result.value = '${exp.evaluate(EvaluationType.REAL, cm)}';
+        if (result.value.endsWith('.0')) {
+          result.value = result.value.substring(0, result.value.length - 2);
+        }
       } catch (e) {
         result.value = "Error";
       }
