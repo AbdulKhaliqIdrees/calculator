@@ -16,7 +16,7 @@ class ResultScreen extends StatelessWidget {
         () => Text(
           buttoncontroller.result.value,
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 35),
         ),
       ),
     );
